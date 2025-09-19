@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bricoleering</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+  }
+
+  /* Navigatiebalk */
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f5;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  nav a {
+    text-decoration: none;
+    color: #222;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  nav a:hover {
+    color: #FFD300; /* accentkleur bij hover */
+  }
+
+  header {
+    text-align: center;
+    padding: 50px 20px;
+    border-bottom: 4px solid #FFD300; /* gele accentlijn */
+  }
+
+  /* Logo placeholder */
+  .logo {
+    width: 120px;
+    height: 120px;
+    background-color: #FFD300; /* tijdelijke kleur voor placeholder */
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #000;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  header p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.2rem;
+    color: #FF6F3C; /* subtiel rood/oranje accent */
+    margin-top: 10px;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+  }
+  article {
+    border: 1px solid #000;
+    padding: 20px;
+    position: relative;
+    background-color: #fff8e1;
+  }
+  article h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  article .tag {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    color: #FFD300;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navigatiebalk -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <header>
+    <!-- Logo placeholder -->
+    <div class="logo">Logo</div>
+    <h1>Bricoleering</h1>
+    <p>The art of messy engineering</p>
+  </header>
+
+  <main>
+    <article>
+      <h2>3D Printed Lamp</h2>
+      <p>A modern lamp designed and 3D printed entirely at home.</p>
+      <div class="tag">Electronics / 3D</div>
+    </article>
+    <article>
+      <h2>Wooden Nightstand</h2>
+      <p>Repurposed IKEA pieces combined with handcrafted woodwork.</p>
+      <div class="tag">Woodworking</div>
+    </article>
+    <article>
+      <h2>Knitted Cable Organizer</h2>
+      <p>Practical and cute way to organize all your electronics cables.</p>
+      <div class="tag">Craft / Hacking</div>
+    </article>
+  </main>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 +++
 date = '2025-09-07T23:19:45+02:00'
-draft = true
+draft = false
 title = 'Vintage_gaming_console'
 +++
 

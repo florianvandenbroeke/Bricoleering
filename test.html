@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+    "header logo"
+    "nav logo"
+    "content sidebar"
+    "footer footer";
+    grid-template-columns: 80% 20%;
+    gap: .5rem;
+    background-color: #FFFFFF;
+}
+.container > div {
+  background-color: #fcb900;
+  color: white;
+  padding-left: 5px;
+}
+.container > div.header {
+  grid-area: header;
+}
+.container > div.logo {
+  grid-area: logo;
+}
+.container > div.nav {
+  grid-area: nav;
+}
+.nav-links {
+  color: white;
+}
+.container > div.nav > h2 {
+  margin-bottom: 0px;
+  line-height: .7;
+}
+.container > div.content {
+  grid-area: content;
+  background-color: white;
+}
+.container > div.footer {
+  grid-area: footer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header"><h1>Bricoleering</h1></div>
+  <div class="logo"></div>
+  <div class="nav">
+    <div class="nav-links">
+      <a href="">Home</a><a href="">About</a>
+    </div>
+  </div>
+  <div class="content1"><h2>Hier komt dus een zeer uitgebreide tekskt!</h2></div>
+  <div class="content2"><h2>Test!</h2></div>
+  <div class="footer"><h2>Test!</h2></div>
+</div>
+
+</body>
+</html>
