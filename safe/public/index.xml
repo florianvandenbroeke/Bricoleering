@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bricoleering</title>
+    <link>http://192.168.50.223:1313/</link>
+    <description>Recent content on Bricoleering</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Sep 2025 23:19:45 +0200</lastBuildDate>
+    <atom:link href="http://192.168.50.223:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vintage_gaming_console</title>
+      <link>http://192.168.50.223:1313/posts/vintage_gaming_console/</link>
+      <pubDate>Sun, 07 Sep 2025 23:19:45 +0200</pubDate>
+      <guid>http://192.168.50.223:1313/posts/vintage_gaming_console/</guid>
+      <description>&lt;p&gt;I certainly have a weak spot for vintage electronics. That’s why I absolutely wanted to revive this old CRT TV that we found when moving into our new place.&lt;/p&gt;&#xA;&lt;p&gt;I transformed this TV into a vintage gaming console with a Raspberry Pi that runs RetroPie, an operating system that turns the Pi into a retro gaming machine.&lt;/p&gt;&#xA;&lt;p&gt;Connecting the Pi to a TV that dates back to the beginning of the seventies was however not straightforward. Back then, TV’s were mostly used to watch live broadcasts so they lacked any kind of auxiliary inputs. This television set too only features a UHF/VHF antenna connector at the back.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nightstand</title>
+      <link>http://192.168.50.223:1313/posts/nightstand/</link>
+      <pubDate>Sun, 07 Sep 2025 23:18:06 +0200</pubDate>
+      <guid>http://192.168.50.223:1313/posts/nightstand/</guid>
+      <description>&lt;p&gt;This project actually started in the “second chance corner” of an IKEA store. There, I found this cabinet door with a thin cork layer on the front side and tought this would be the perfect top surface for a nightstand.&lt;/p&gt;&#xA;&lt;p&gt;In IKEA’s second chance corner, you can buy slightly damaged or showroom items at a reduced price. With a bit of luck, and creativity, this can actually be a great source of affordable materials!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
