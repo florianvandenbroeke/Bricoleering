@@ -128,7 +128,7 @@ pre code {
 
 /* Containers */
 .content {
-  margin-bottom: 0em;
+  margin-bottom: 4em;
   margin-left: auto;
   margin-right: auto;
   max-width: 800px;
@@ -205,28 +205,25 @@ footer {
   margin-top: 2rem;
 }
 
-@media (max-width: 522px) {
+@media (max-width: 600px) {
   footer {
     flex-direction: column;
-    align-items: center;
+    justify-items: center;
   }
-  footer p {
-    margin: 0;
-  }
+
   .logo {
     order: 1;
+    justify-content: center;
   }
-  .acc {
+
+  p {
     order: 2;
-  }
-  .copy {
-    order: 3;
   }
 }
 
 .logo {
   border: none;
-  width: 50px;
+  max-width: 50px;
 }
 
 footer p {

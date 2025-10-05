@@ -210,17 +210,14 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-  footer p {
-    margin: 0;
-  }
   .logo {
     order: 1;
   }
   .acc {
-    order: 2;
+    order: 3;
   }
   .copy {
-    order: 3;
+    order: 2;
   }
 }
 

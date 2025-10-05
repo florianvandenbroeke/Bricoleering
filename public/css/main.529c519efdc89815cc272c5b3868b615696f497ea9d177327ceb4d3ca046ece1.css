@@ -222,6 +222,10 @@ footer {
   .copy {
     order: 3;
   }
+  footer img {
+    width: 100px;
+    height: auto;
+  }
 }
 
 .logo {
