@@ -5,6 +5,7 @@ theme = "archie-safe"
 
 [params]
     mode = "light"
+    useCN = true
 
 [[params.social]]
 name = "GitHub"
