@@ -10,9 +10,9 @@
     <atom:link href="http://192.168.50.223:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vintage_gaming_console</title>
-      <link>http://192.168.50.223:1313/posts/vintage_gaming_console/</link>
+      <link>http://192.168.50.223:1313/posts/vintage-gaming-console/</link>
       <pubDate>Sun, 07 Sep 2025 23:19:45 +0200</pubDate>
-      <guid>http://192.168.50.223:1313/posts/vintage_gaming_console/</guid>
+      <guid>http://192.168.50.223:1313/posts/vintage-gaming-console/</guid>
       <description>&lt;p&gt;I certainly have a weak spot for vintage electronics. That’s why I absolutely wanted to revive this old CRT TV that we found when moving into our new place.&lt;/p&gt;&#xA;&lt;p&gt;I transformed this TV into a vintage gaming console with a Raspberry Pi that runs RetroPie, an operating system that turns the Pi into a retro gaming machine.&lt;/p&gt;&#xA;&lt;p&gt;Connecting the Pi to a TV that dates back to the beginning of the seventies was however not straightforward. Back then, TV’s were mostly used to watch live broadcasts so they lacked any kind of auxiliary inputs. This television set too only features a UHF/VHF antenna connector at the back.&lt;/p&gt;</description>
     </item>
     <item>
