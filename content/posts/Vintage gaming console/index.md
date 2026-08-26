@@ -2,9 +2,12 @@
 date = '2025-09-07T23:19:45+02:00'
 draft = false
 title = 'Vintage gaming console'
+featured_image = 'tv_achterkant.JPG'
 +++
 
 I certainly have a weak spot for vintage electronics. That’s why I absolutely wanted to revive this old CRT TV that we found when moving into our new place.
+
+<!--more-->
 
 I transformed this TV into a vintage gaming console with a Raspberry Pi that runs RetroPie, an operating system that turns the Pi into a retro gaming machine.
 

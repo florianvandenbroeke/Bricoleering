@@ -17,7 +17,14 @@
 				<section class="list-item">
 					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
 					<time>{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
-					<br>{{ template "partials/pagedescription.html" . }}
+					<div class="preview">
+					{{ $img := .Resources.GetMatch .Params.featured_image }}
+					{{ with $img }}
+					{{ $thumb := .Resize "800x q75" }}
+					<img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}">
+					{{ end }}
+					{{ template "partials/pagedescription.html" . }}
+					</div>
 					<a class="readmore" href="{{ .RelPermalink }}">Continue reading&hellip;</a>
 				</section>
 				{{ end }}
