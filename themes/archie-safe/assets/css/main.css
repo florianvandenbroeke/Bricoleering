@@ -57,6 +57,31 @@ a:hover {
     transition-duration: 150ms;
 }
 
+/* Chromium-only (Chrome/Edge/Brave): wavy black underline for
+   readmore + in-post links. -webkit-app-region is a reliable
+   feature-detection hack for "is this Chromium", since Safari and
+   Firefox don't support it. */
+@supports (-webkit-app-region: drag) {
+  .readmore,
+  .post-content a {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--maincolor);
+    text-decoration-thickness: 2.5px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 600ms;
+  }
+
+  .readmore:hover,
+  .post-content a:hover {
+    background-color: transparent;
+    color: inherit;
+    text-decoration-color: var(--bordercl);
+    transition: text-decoration-color 600ms;
+  }
+}
+
 ul {
   list-style: none;
   padding-left: 2ch;
@@ -66,7 +91,7 @@ ul li {
 }
 ul > li::before {
   content: '* ';
-  font-weight: bold;
+  font-weight: normal;
 }
 
 /* Images */
@@ -150,12 +175,19 @@ nav a {
   margin-right: .5em;
 }
 
+header .main a,
+nav a {
+  border-bottom: 3px solid var(--maincolor);
+  text-decoration: none;
+}
+
 header .main {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 h1, h2, h3, h4, h5, h6 {
   font-size: 1.2rem;
+  font-weight: 500;
   margin-top: 2em;
 }
 /*
@@ -238,6 +270,17 @@ footer a {
   border-bottom: 1px solid black;
 }
 
+.acc a {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.acc a:hover {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: underline;
+}
+
 .soc {
   display: flex;
   align-items: center;
@@ -255,6 +298,11 @@ footer a {
 /* Common */
 .title h1 {
   margin-bottom: 0;
+}
+
+.title a {
+  border-bottom: 3px solid var(--maincolor);
+  text-decoration: none;
 }
 
 time {
