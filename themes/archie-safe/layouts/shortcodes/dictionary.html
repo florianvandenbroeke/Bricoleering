@@ -1,0 +1,16 @@
+{{ $word := .Get "word" }}
+{{ $pronunciation := .Get "pronunciation" }}
+{{ $pos := .Get "pos" }}
+<div class="dictionary-entry">
+  <span class="dictionary-word">{{ $word }}</span>
+  {{ if or $pronunciation $pos }}
+  <div class="dictionary-meta">
+    {{ with $pronunciation }}<span class="dictionary-pronunciation">[{{ . }}]</span>{{ end }}
+    {{ with $pos }}<span class="dictionary-pos">{{ . }}</span>{{ end }}
+  </div>
+  {{ end }}
+  <div class="dictionary-rule"></div>
+  <div class="dictionary-definition">
+    {{ .Inner }}
+  </div>
+</div>

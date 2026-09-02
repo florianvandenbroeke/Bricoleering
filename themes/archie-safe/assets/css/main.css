@@ -364,6 +364,69 @@ article .title {
   border-color: #ffd700;
 }
 
+/* Dictionary entry (About page) */
+.dictionary-entry {
+  margin: 1.5em 0;
+  max-width: 60%;
+}
+
+.dictionary-word {
+  color: var(--maincolor);
+  display: block;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-left: 1.5rem;
+}
+
+.dictionary-meta {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+  margin-left: 1.5rem;
+  margin-top: 0.4em;
+}
+
+.dictionary-pronunciation {
+  color: var(--textcolor);
+}
+
+.dictionary-pos {
+  color: var(--textcolor);
+  font-style: italic;
+  margin-left: 0.75em;
+}
+
+.dictionary-rule {
+  border-top: 1px solid var(--bordercl);
+  margin: 1em 0 1em 1.5rem;
+}
+
+.dictionary-definition {
+  color: var(--textcolor);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-left: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .dictionary-entry {
+    max-width: 100%;
+  }
+  .dictionary-word {
+    font-size: 3rem;
+    margin-left: 0.75rem;
+  }
+  .dictionary-meta,
+  .dictionary-definition {
+    margin-left: 0.75rem;
+  }
+  .dictionary-rule {
+    margin-left: 0.75rem;
+  }
+}
+
 .site-description {
 display: flex;
 justify-content: space-between;

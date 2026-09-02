@@ -4,10 +4,12 @@
     <div class="post-container">
       <!-- Main Content -->
       <div class="post-content">
+        {{ if not .Params.hideTitle }}
         <div class="title">
           <h1 class="title">{{ .Title }}</h1>
           <div class="meta">Posted on {{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
         </div>
+        {{ end }}
         {{ if isset .Params "tldr" }}
         <div class="tldr">
           <strong>tl;dr:</strong>
