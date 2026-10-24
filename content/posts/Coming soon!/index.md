@@ -5,4 +5,4 @@ title = 'Coming soon!'
 +++
 
 I'm currently working on this site!
-Max is geen lief poesje.
+Max heeft een lief poesje.
