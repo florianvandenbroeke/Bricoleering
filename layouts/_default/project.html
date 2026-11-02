@@ -1,0 +1,52 @@
+{{ define "main" }}
+<main>
+  <article>
+    <div class="post-container">
+      <div class="post-content">
+        <div class="title">
+          <h1 class="title">{{ .Title }}</h1>
+          <div class="meta">
+            {{ if .Params.status }}Status: <strong>{{ .Params.status }}</strong>{{ end }}
+            {{ if .Draft }} <span class="draft-label">DRAFT</span>{{ end }}
+          </div>
+        </div>
+
+        {{ if .Params.cover }}
+        <img src="{{ .Params.cover | relURL }}" alt="{{ .Title }}" style="max-width:100%; height:auto;">
+        {{ end }}
+
+        {{ if .Params.summary }}
+        <div class="tldr">
+          <strong>tl;dr:</strong>
+          {{ .Params.summary }}
+        </div>
+        {{ end }}
+
+        <section class="body">
+          {{ .Content }}
+        </section>
+      </div>
+    </div>
+
+    {{ $makelogs := sort .Pages "Params.log" "desc" }}
+    {{ if eq (len $makelogs) 0 }}
+    <div class="callout callout-warning">
+      <div class="callout-inner">
+        ⚠️ <u>Warning</u>
+        <br />
+        No makelogs found for this project yet.
+      </div>
+    </div>
+    {{ else }}
+    <h2>Makelogs</h2>
+    <ul class="posts">
+      {{ range $makelogs }}
+      <li class="post">
+        <a href="{{ .RelPermalink }}">#{{ .Params.log }} — {{ .Title }}</a> <span class="meta">{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</span>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </article>
+</main>
+{{ end }}
