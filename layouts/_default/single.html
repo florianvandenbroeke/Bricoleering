@@ -1,0 +1,78 @@
+{{ define "main" }}
+<main>
+  <article>
+    <div class="post-container">
+      <!-- Main Content -->
+      <div class="post-content">
+        {{ if not .Params.hideTitle }}
+        <div class="title">
+          <h1 class="title">{{ .Title }}</h1>
+          <div class="meta">Posted on {{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
+        </div>
+        {{ end }}
+        {{ if isset .Params "tldr" }}
+        <div class="tldr">
+          <strong>tl;dr:</strong>
+          {{ .Params.tldr }}
+        </div>{{ end }}
+        <section class="body">
+          {{ .Content }}
+        </section>
+        <div class="post-tags">
+          {{ if ne .Type "page" }}
+          {{ if gt .Params.tags 0 }}
+          <nav class="nav tags">
+            <ul class="tags">
+              {{ range .Params.tags }}
+              <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+              {{ end }}
+            </ul>
+          </nav>
+          {{ end }}
+          {{ end }}
+        </div>
+        {{ if isset .Params "log" }}
+        {{ $siblings := sort .Parent.Pages "Params.log" "asc" }}
+        {{ $n := len $siblings }}
+        {{ range $i, $p := $siblings }}
+          {{ if eq $p.RelPermalink $.RelPermalink }}
+          <nav class="nav makelog-nav">
+            <ul class="makelog-pager">
+              {{ if gt $i 0 }}
+              {{ with index $siblings (sub $i 1) }}
+              <li class="prev"><a href="{{ .RelPermalink }}">&larr; #{{ .Params.log }} {{ .Title }}</a></li>
+              {{ end }}
+              {{ end }}
+              {{ if lt $i (sub $n 1) }}
+              {{ with index $siblings (add $i 1) }}
+              <li class="next"><a href="{{ .RelPermalink }}">#{{ .Params.log }} {{ .Title }} &rarr;</a></li>
+              {{ end }}
+              {{ end }}
+            </ul>
+          </nav>
+          {{ end }}
+        {{ end }}
+        {{ end }}
+      </div>
+
+      <!-- TOC -->
+      {{ if and (isset .Params "toc") (.Params.toc) }}
+      <div class="toc">
+        <strong>Table of contents:</strong>
+        {{ .TableOfContents }}
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Disqus -->
+    {{- $.Scratch.Set "isDisqus" true -}}
+    {{ if not .Site.Config.Services.Disqus.Shortname }}
+    {{- $.Scratch.Set "isDisqus" false -}}
+    {{ end }}
+
+    {{- if eq ($.Scratch.Get "isDisqus") true -}}
+    {{- partial "disqus.html" . -}}
+    {{- end -}}
+  </article>
+</main>
+{{ end }}
