@@ -16,7 +16,7 @@ html {
 }
 body{
   display: block;
-  margin: 8px;
+  margin: 0 8px 8px;
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -49,20 +49,18 @@ a {
   border-bottom: 3px solid var(--maincolor);
   color: inherit;
   text-decoration: none;
-  transition-duration: 600ms;
+  transition: border-bottom-color 600ms ease;
 }
 a:hover {
-    background-color: var(--hovercolor);
-    color: #fff;
-    transition-duration: 150ms;
+    border-bottom-color: var(--bordercl);
+    transition: border-bottom-color 150ms ease;
 }
 
 /* Chromium-only (Chrome/Edge/Brave): wavy black underline for
-   readmore + in-post links. -webkit-app-region is a reliable
+   in-post links. -webkit-app-region is a reliable
    feature-detection hack for "is this Chromium", since Safari and
    Firefox don't support it. */
 @supports (-webkit-app-region: drag) {
-  .readmore,
   .post-content a {
     border-bottom: none;
     text-decoration: underline;
@@ -73,13 +71,29 @@ a:hover {
     transition: text-decoration-color 600ms;
   }
 
-  .readmore:hover,
   .post-content a:hover {
     background-color: transparent;
     color: inherit;
     text-decoration-color: var(--bordercl);
     transition: text-decoration-color 600ms;
   }
+}
+
+/* Title/navigational links (post titles, list items, pager) are not
+   in-post content links: no permanent underline, just a fade to
+   black on hover, matching the nav links. */
+.title a,
+.posts a,
+.makelog-pager a {
+  border-bottom: 3px solid transparent;
+  transition: border-bottom-color 600ms ease;
+}
+
+.title a:hover,
+.posts a:hover,
+.makelog-pager a:hover {
+  border-bottom-color: var(--bordercl);
+  transition: border-bottom-color 150ms ease;
 }
 
 ul {
@@ -157,7 +171,7 @@ pre code {
   margin-left: auto;
   margin-right: auto;
   max-width: 800px;
-  padding: 0 1ch;
+  padding: 0 3ch;
   word-wrap: break-word;
 }
 
@@ -166,9 +180,37 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 1em 0;
+  align-items: center;
+  margin: 0 0 1em 0;
   line-height: 2.5em;
   row-gap: 1em;
+  padding: 1em 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--backgroundcolor);
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 2em;
+  background: linear-gradient(to bottom, var(--backgroundcolor), transparent);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  header {
+    position: static;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header::after {
+    display: none;
+  }
 }
 
 nav a {
@@ -177,18 +219,59 @@ nav a {
 
 header .main a,
 nav a {
-  border-bottom: 3px solid var(--maincolor);
+  border-bottom: 3px solid transparent;
   text-decoration: none;
+  transition: border-bottom-color 600ms ease;
+}
+
+nav a.active {
+  border-bottom: 3px solid var(--maincolor);
 }
 
 header .main {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 500;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .75em;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: .2em;
+  line-height: 1.3em;
+}
+
+.site-title {
+  position: relative;
+  top: -4px;
+}
+
+.site-logo {
+  height: 70px;
+  width: auto;
+  border: none;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: grey;
+  margin: 0.2em 0 0;
+  line-height: 1.4;
 }
 h1, h2, h3, h4, h5, h6 {
   font-size: 1.2rem;
   font-weight: 500;
   margin-top: 2em;
+}
+
+.list .list-item:first-child .title {
+  margin-top: 0;
 }
 /*
 h1::before { color: var(--maincolor); content: '# '; }
@@ -232,6 +315,7 @@ h6::before { color: var(--maincolor); content: '###### '; }
 footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-top: 0.05rem solid var(--bordercl);
   padding: 2rem 0rem;
   margin-top: 2rem;
@@ -258,7 +342,7 @@ footer {
 
 .logo {
   border: none;
-  width: 50px;
+  width: 30px;
 }
 
 footer p {
@@ -298,11 +382,6 @@ footer a {
 /* Common */
 .title h1 {
   margin-bottom: 0;
-}
-
-.title a {
-  border-bottom: 3px solid var(--maincolor);
-  text-decoration: none;
 }
 
 time {

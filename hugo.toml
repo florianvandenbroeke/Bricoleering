@@ -1,10 +1,11 @@
 baseURL = 'https://bricoleering.com/'
 languageCode = 'en-us'
 title = 'Bricoleering'
-theme = "archie-safe"
+theme = "bricoleering-theme"
 
 [params]
     mode = "light"
+    tagline = "Engineer by day, bricoleur by night"
 
 [[params.social]]
 name = "GitHub"
@@ -14,12 +15,12 @@ url = "https://github.com/athul/archie"
 # Main menu Items
 
 [[menu.main]]
-name = "Home"
+name = "Projects"
 url = "/"
 weight = 1
 
 [[menu.main]]
-name = "All posts"
+name = "Posts"
 url = "/posts"
 weight = 2
 

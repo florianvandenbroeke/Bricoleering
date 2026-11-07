@@ -10,11 +10,27 @@
 
 <header>
 	<div class="main">
-		<a href="{{ absLangURL "/" }}">{{ .Site.Title }}</a>
+		<a href="{{ absLangURL "/" }}" class="brand">
+			<img src="{{ "img/konijn-geel.png" | relURL }}" class="site-logo" alt="Bricoleering logo">
+			<span class="brand-text">
+				<span class="site-title">{{ .Site.Title }}</span>
+				{{ with .Site.Params.tagline }}
+				<span class="tagline">{{ . }}</span>
+				{{ end }}
+			</span>
+		</a>
 	</div>
 	<nav>
+		{{ $page := . }}
+		{{ $cur := .RelPermalink }}
 		{{ range .Site.Menus.main }}
-		<a href="{{ .URL }}">{{ .Name }}</a>
+		{{ $isActive := false }}
+		{{ if eq .URL "/" }}
+			{{ $isActive = $page.IsHome }}
+		{{ else }}
+			{{ $isActive = strings.HasPrefix $cur (printf "%s/" .URL) }}
+		{{ end }}
+		<a href="{{ .URL }}"{{ if $isActive }} class="active"{{ end }}>{{ .Name }}</a>
 		{{ end }}
 		{{ if eq .Site.Params.mode "toggle" -}}
 	| <span id="dark-mode-toggle" onclick="toggleTheme()">{{template "feathericon" (dict "UseCDN" .Site.Params.useCDN "Icon" "sun") }}</span>
