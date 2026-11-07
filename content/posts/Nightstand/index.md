@@ -2,6 +2,7 @@
 date = '2025-09-07T23:18:06+02:00'
 draft = true
 title = 'Nightstand'
+tags = ['project']
 +++
 
 This project actually started in the “second chance corner” of an IKEA store. There, I found this cabinet door with a thin cork layer on the front side and tought this would be the perfect top surface for a nightstand.
