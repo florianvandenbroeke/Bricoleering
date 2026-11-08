@@ -2,7 +2,7 @@
 date = '2022-08-18T23:05:51+02:00'
 draft = true
 title = 'Dremel CNC machine'
-tags = ['project']
+type = 'project'
 +++
 
 A CNC milling machine has a lot in common with 3D-printers: they both turn a digital design into a physical object. The difference however, is that they can use different materials such as wood or metal, alongside plastic. Having one in your workshop is thus really useful! In this post I’ll show how I built my own CNC machine using 3D printed parts and a cheap rotary tool.

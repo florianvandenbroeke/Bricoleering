@@ -3,7 +3,7 @@ date = '2025-09-07T23:19:45+02:00'
 draft = true
 title = 'Vintage gaming console'
 featured_image = 'tv_achterkant.JPG'
-tags = ['project']
+type = 'project'
 +++
 
 I certainly have a weak spot for vintage electronics. That’s why I absolutely wanted to revive this old CRT TV that we found when moving into our new place.

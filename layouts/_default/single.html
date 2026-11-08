@@ -5,10 +5,7 @@
       <!-- Main Content -->
       <div class="post-content">
         {{ if not .Params.hideTitle }}
-        <div class="title">
-          <h1 class="title">{{ .Title }}</h1>
-          <div class="meta">Posted on {{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
-        </div>
+        {{ partial "post-header.html" . }}
         {{ end }}
         {{ if isset .Params "tldr" }}
         <div class="tldr">
@@ -31,28 +28,6 @@
           {{ end }}
           {{ end }}
         </div>
-        {{ if isset .Params "log" }}
-        {{ $siblings := sort .Parent.Pages "Params.log" "asc" }}
-        {{ $n := len $siblings }}
-        {{ range $i, $p := $siblings }}
-          {{ if eq $p.RelPermalink $.RelPermalink }}
-          <nav class="nav makelog-nav">
-            <ul class="makelog-pager">
-              {{ if gt $i 0 }}
-              {{ with index $siblings (sub $i 1) }}
-              <li class="prev"><a href="{{ .RelPermalink }}">&larr; #{{ .Params.log }} {{ .Title }}</a></li>
-              {{ end }}
-              {{ end }}
-              {{ if lt $i (sub $n 1) }}
-              {{ with index $siblings (add $i 1) }}
-              <li class="next"><a href="{{ .RelPermalink }}">#{{ .Params.log }} {{ .Title }} &rarr;</a></li>
-              {{ end }}
-              {{ end }}
-            </ul>
-          </nav>
-          {{ end }}
-        {{ end }}
-        {{ end }}
       </div>
 
       <!-- TOC -->

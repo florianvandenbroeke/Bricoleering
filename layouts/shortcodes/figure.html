@@ -1,0 +1,17 @@
+{{ $src := .Get "src" }}
+{{ $caption := .Get "caption" | default (.Get "title") }}
+{{ $alt := .Get "alt" | default $caption }}
+{{ $page := .Page }}
+{{ $n := add ($page.Store.Get "figureCount" | default 0) 1 }}
+{{ $page.Store.Set "figureCount" $n }}
+{{ $img := $page.Resources.GetMatch $src }}
+<figure>
+  {{ with $img }}
+  <img src="{{ .RelPermalink }}" alt="{{ $alt }}">
+  {{ else }}
+  <img src="{{ $src | relURL }}" alt="{{ $alt }}">
+  {{ end }}
+  {{ with $caption }}
+  <figcaption><strong>Fig. {{ $n }}</strong> {{ . }}</figcaption>
+  {{ end }}
+</figure>

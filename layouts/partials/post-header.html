@@ -1,0 +1,30 @@
+{{ $project := .Params.project }}
+{{ $type := .Params.type }}
+{{ $hasNummer := isset .Params "nummer" }}
+<div class="post-header">
+  <div class="post-header-accent"></div>
+  <div class="post-header-body">
+    <div class="post-header-grid">
+      {{ with $project }}
+      <div class="post-header-cell">
+        <span class="post-header-label">Project</span>
+        <span class="post-header-value post-header-value--project">{{ . }}</span>
+      </div>
+      {{ end }}
+      {{ if and $type $hasNummer }}
+      <div class="post-header-cell post-header-cell--accent">
+        <span class="post-header-label">{{ $type }}</span>
+        <span class="post-header-value">#{{ $.Params.nummer }}</span>
+      </div>
+      {{ end }}
+      <div class="post-header-cell post-header-cell--date">
+        <span class="post-header-label">Date</span>
+        <span class="post-header-value">{{ dateFormat "2006-01-02" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span>{{ end }}</span>
+      </div>
+    </div>
+    <div class="post-header-title-row">
+      <span class="post-header-label">Title</span>
+      <h1 class="post-header-title">{{ .Title }}</h1>
+    </div>
+  </div>
+</div>

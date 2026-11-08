@@ -116,8 +116,8 @@ img {
 
 figure {
   box-sizing: border-box;
-  display: inline-block;
-  margin: 0;
+  display: block;
+  margin: 0 0 1em;
   max-width: 100%;
 }
 
@@ -125,19 +125,13 @@ figure img {
   max-height: 500px;
 }
 
-@media screen and (min-width: 600px) {
-  figure {
-    padding: 0 40px;
-  }
+figcaption {
+  font-size: 1rem;
+  margin: 0.5em 0 0;
 }
 
-figure h4 {
-  font-size: 1rem;
-  margin: 0;
-  margin-bottom: 1em;
-}
-figure h4::before {
-  content: '↳ ';
+.post-content img {
+  border: 1px solid var(--bordercl);
 }
 
 /* Code blocks */
@@ -170,7 +164,7 @@ pre code {
   margin-bottom: 0em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
+  max-width: 700px;
   padding: 0 1ch;
   word-wrap: break-word;
 }
@@ -186,32 +180,6 @@ header {
   row-gap: .5em;
   padding: 1em 0 0;
   padding-bottom: .5em;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: var(--backgroundcolor);
-}
-
-header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  height: 2em;
-  background: linear-gradient(to bottom, var(--backgroundcolor), transparent);
-  pointer-events: none;
-}
-
-@media (max-width: 720px) {
-  header {
-    position: static;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  header::after {
-    display: none;
-  }
 }
 
 nav a {
@@ -256,6 +224,7 @@ header .main {
   display: inline-block;
   line-height: 0;
   position: relative;
+  flex-shrink: 0;
 }
 
 .site-logo {
@@ -283,7 +252,7 @@ header .main {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .brand:hover .wink-eye,
+  .logo-wrap:hover .wink-eye,
   .brand:focus-visible .wink-eye {
     animation: wink 500ms ease;
   }
@@ -425,6 +394,78 @@ article .title {
   margin-bottom: 1em;
 }
 
+.post-header {
+  margin-bottom: 1.5em;
+}
+
+.post-header-accent {
+  height: 5px;
+  background: var(--maincolor);
+}
+
+.post-header-body {
+  border: 1.5px solid var(--bordercl);
+  border-top: none;
+  overflow: hidden;
+  background-color: white;
+}
+
+.post-header-grid {
+  display: flex;
+  border-bottom: 1.5px solid var(--bordercl);
+}
+
+.post-header-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  padding: 0.75em 1.25em;
+  border-right: 1.5px solid var(--bordercl);
+}
+
+.post-header-cell:last-child {
+  border-right: none;
+}
+
+.post-header-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: grey;
+}
+
+.post-header-value {
+  font-size: 1.3rem;
+}
+
+.post-header-value--project {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-header-cell--accent .post-header-value {
+  font-weight: 700;
+}
+
+.post-header-title-row {
+  padding: 1em 1.25em 1.25em;
+}
+
+.post-header-title-row .post-header-label {
+  display: block;
+  margin-bottom: 0.3em;
+}
+
+.post-header-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: left;
+}
 
 /* Callout */
 .callout {
@@ -522,7 +563,28 @@ article .title {
   margin-left: 1.5rem;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 605px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .post-header-cell--date {
+    flex: 1.6;
+  }
+
+  .post-header-cell:not(.post-header-cell--date) {
+    flex: 1;
+  }
+
+  .post-header-cell--date .post-header-value {
+    white-space: nowrap;
+  }
+
+  .post-header-title {
+    font-size: 1.4rem;
+  }
+
   .dictionary-entry {
     max-width: 100%;
     margin-left: 0;
