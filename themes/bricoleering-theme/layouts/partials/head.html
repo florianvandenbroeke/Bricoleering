@@ -28,10 +28,11 @@
 		{{ $cur := .RelPermalink }}
 		{{ range .Site.Menus.main }}
 		{{ $isActive := false }}
-		{{ if eq .URL "/" }}
+		{{ $entryURL := strings.TrimSuffix "/" .URL }}
+		{{ if eq $entryURL "" }}
 			{{ $isActive = $page.IsHome }}
 		{{ else }}
-			{{ $isActive = strings.HasPrefix $cur (printf "%s/" .URL) }}
+			{{ $isActive = strings.HasPrefix $cur (printf "%s/" $entryURL) }}
 		{{ end }}
 		<a href="{{ .URL }}"{{ if $isActive }} class="active"{{ end }}>{{ .Name }}</a>
 		{{ end }}
