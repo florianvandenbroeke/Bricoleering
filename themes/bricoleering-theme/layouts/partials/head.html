@@ -11,7 +11,10 @@
 <header>
 	<div class="main">
 		<a href="{{ absLangURL "/" }}" class="brand">
-			<img src="{{ "img/konijn-geel.png" | relURL }}" class="site-logo" alt="Bricoleering logo">
+			<span class="logo-wrap">
+				<img src="{{ "img/konijn-geel.png" | relURL }}" class="site-logo" alt="Bricoleering logo">
+				<span class="wink-eye"></span>
+			</span>
 			<span class="brand-text">
 				<span class="site-title">{{ .Site.Title }}</span>
 				{{ with .Site.Params.tagline }}

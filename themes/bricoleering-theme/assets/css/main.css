@@ -49,7 +49,7 @@ a {
   border-bottom: 3px solid var(--maincolor);
   color: inherit;
   text-decoration: none;
-  transition: border-bottom-color 600ms ease;
+  transition: border-bottom-color 200ms ease;
 }
 a:hover {
     border-bottom-color: var(--bordercl);
@@ -86,7 +86,7 @@ a:hover {
 .posts a,
 .makelog-pager a {
   border-bottom: 3px solid transparent;
-  transition: border-bottom-color 600ms ease;
+  transition: border-bottom-color 200ms ease;
 }
 
 .title a:hover,
@@ -171,7 +171,7 @@ pre code {
   margin-left: auto;
   margin-right: auto;
   max-width: 800px;
-  padding: 0 3ch;
+  padding: 0 1ch;
   word-wrap: break-word;
 }
 
@@ -183,8 +183,9 @@ header {
   align-items: center;
   margin: 0 0 1em 0;
   line-height: 2.5em;
-  row-gap: 1em;
+  row-gap: .5em;
   padding: 1em 0 0;
+  padding-bottom: .5em;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -202,7 +203,7 @@ header::after {
   pointer-events: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   header {
     position: static;
     flex-direction: column;
@@ -214,14 +215,14 @@ header::after {
 }
 
 nav a {
-  margin-right: .5em;
+  margin-right: 1em;
 }
 
 header .main a,
 nav a {
   border-bottom: 3px solid transparent;
   text-decoration: none;
-  transition: border-bottom-color 600ms ease;
+  transition: border-bottom-color 200ms ease;
 }
 
 nav a.active {
@@ -236,13 +237,13 @@ header .main {
 .brand {
   display: flex;
   align-items: center;
-  gap: .75em;
+  gap: .5em;
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
-  gap: .2em;
+  gap: 0em;
   line-height: 1.3em;
 }
 
@@ -251,16 +252,47 @@ header .main {
   top: -4px;
 }
 
+.logo-wrap {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+}
+
 .site-logo {
-  height: 70px;
+  height: 80px;
   width: auto;
   border: none;
 }
 
+.wink-eye {
+  position: absolute;
+  top: 52.42%;
+  right: 25.45%;
+  width: 13.64%;
+  height: 7.51%;
+  background: var(--backgroundcolor);
+  border-radius: 0px;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+@keyframes wink {
+  0% { transform: scaleY(0); }
+  40% { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .brand:hover .wink-eye,
+  .brand:focus-visible .wink-eye {
+    animation: wink 500ms ease;
+  }
+}
+
 .tagline {
-  font-size: 0.9rem;
+  font-size: .9rem;
   font-weight: 400;
-  color: grey;
+  color: rgb(101, 96, 96);
   margin: 0.2em 0 0;
   line-height: 1.4;
 }
@@ -445,8 +477,9 @@ article .title {
 
 /* Dictionary entry (About page) */
 .dictionary-entry {
-  margin: 1.5em 0;
+  margin: 2em 0 3em 2em;
   max-width: 60%;
+  border-left: 2px solid var(--maincolor);
 }
 
 .dictionary-word {
@@ -477,7 +510,7 @@ article .title {
 }
 
 .dictionary-rule {
-  border-top: 1px solid var(--bordercl);
+  border-top: 2px dotted #ccc;
   margin: 1em 0 1em 1.5rem;
 }
 
@@ -489,20 +522,22 @@ article .title {
   margin-left: 1.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .dictionary-entry {
     max-width: 100%;
+    margin-left: 0;
+    padding-left: 0.75rem;
   }
   .dictionary-word {
     font-size: 3rem;
-    margin-left: 0.75rem;
+    margin-left: 0;
   }
   .dictionary-meta,
   .dictionary-definition {
-    margin-left: 0.75rem;
+    margin-left: 0;
   }
   .dictionary-rule {
-    margin-left: 0.75rem;
+    margin-left: 0;
   }
 }
 
