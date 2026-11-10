@@ -4,33 +4,37 @@
 	<body>
 		<div class="content">
 			{{ partial "head.html" . }}
-			
+
 			<main class="list">
 				{{- if isset .Site.Params "subtitle" -}}
-				<div class="site-description">	
+				<div class="site-description">
 					<p>{{ .Site.Params.Subtitle | .Page.RenderString }}</p>
 				</div>
 				{{- end -}}
-				{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
-				{{ range $paginator.Pages }}
-				<section class="list-item">
-					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
-					<time>{{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
-					<div class="preview">
-					{{ $img := .Resources.GetMatch .Params.featured_image }}
-					{{ with $img }}
-					{{ $thumb := .Resize "800x q75" }}
-					<img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}">
+
+				<h2 class="latest-heading">Latest posts</h2>
+				<div class="latest-list">
+					{{ $pages := where .Site.RegularPages "Section" "posts" }}
+					{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+					{{ range $paginator.Pages }}
+					{{ $post := . }}
+					<article class="latest-item">
+						<div class="latest-meta">
+							{{ with $post.Params.project }}{{ . }}{{ end }}
+							{{ if and $post.Params.project $post.Params.type }} · {{ end }}
+							{{ with $post.Params.type }}{{ . }}{{ if isset $post.Params "nummer" }} #{{ $post.Params.nummer }}{{ end }}{{ end }}
+							{{ if or $post.Params.project $post.Params.type }} · {{ end }}
+							{{ dateFormat "2006-01-02" $post.Date }}{{ if $post.Draft }} <span class="draft-label">DRAFT</span>{{ end }}
+						</div>
+						<h1 class="latest-title"><a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a></h1>
+						<p class="latest-excerpt">{{ $post.Plain | strings.TrimSpace | truncate 400 }}</p>
+					</article>
 					{{ end }}
-					{{ template "partials/pagedescription.html" . }}
-					</div>
-				</section>
-				{{ end }}
+				</div>
 				{{ template "partials/paginator.html" . }}
 			</main>
 			{{ partial "footer.html" . }}
 		</div>
-		
+
 	</body>
 </html>

@@ -5,7 +5,6 @@ title = 'A digital camera that pretends to be analog'
 project = 'DOkA'
 type = 'makelog'
 nummer = 0
-featured_image = 'Attachments/949F2396-FF82-41FF-BDF0-9446CC532E53.jpg'
 +++
 
 Back in 2019 I went to Finland with some friends. During this trip I took photos with my smartphone camera, but also with an analog film camera. After the trip, I had the photos developed and printed. Some photos I’d forgotten taking, some photos turned out differently than I expected. The photos from my smartphone, I barely even looked at. I want taking photos to be special again, but without the cost of buying and developing film. That’s why I decided to make DOkA.
