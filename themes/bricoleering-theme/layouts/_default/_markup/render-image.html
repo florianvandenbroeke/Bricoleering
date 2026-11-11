@@ -1,0 +1,11 @@
+{{ $u := urls.Parse .Destination }}
+{{ $img := "" }}
+{{ if not $u.IsAbs }}
+  {{ $img = .Page.Resources.GetMatch .Destination }}
+{{ end }}
+{{ with $img }}
+  {{ $optimized := partial "optimize-image.html" . }}
+  <img src="{{ $optimized.RelPermalink }}" alt="{{ $.Text }}"{{ with $.Title }} title="{{ . }}"{{ end }} width="{{ $optimized.Width }}" height="{{ $optimized.Height }}">
+{{ else }}
+  <img src="{{ $.Destination | safeURL }}" alt="{{ $.Text }}"{{ with $.Title }} title="{{ . }}"{{ end }}>
+{{ end }}

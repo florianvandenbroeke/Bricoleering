@@ -7,9 +7,9 @@ type = 'makelog'
 nummer = 2
 +++
 
-Before spending my time and money on a PCB, I built a prototype on a breadboard with an ESP32-S3 development board and e-ink module to test and develop the firmware.
+Before spending time and money on a PCB, I built a prototype on a breadboard with an ESP32-S3 development board and e-ink module to test and develop the firmware.
 
-![The prototype](prototype.jpg)
+{{< figure src="prototype.jpg" title="The prototype" >}}
 
 ## Speeding up an e-ink display
 
@@ -19,7 +19,7 @@ Using fastwave comes at a cost. When used for long periods, there’s a risk of 
 
 To mitigate this, I implemented a system in which each pixel can only be pushed 10 times to the same color. After that, the pixel is simply left alone until it needs to change color. When the camera goes to sleep, all the pixels that still have a “debt” (unequal number of pushes in either direction) are pushed to the other direction, so that over time, the screen does not accumulate any charge. I also lowered the frame rate	to around 10 fps, as this seemed like the sweet spot between ghosting and usability.
 
-{{< figure src="fastwave.gif" title="The prototype in action (not sped up)" >}}
+{{< figure src="fastwave2.webm" title="The prototype in action (not sped up)" >}}
 
 ## Using the camera
 
@@ -27,7 +27,7 @@ I know how to code, but I'm not a software developer. Writing this firmware from
 
 {{< figure src="ready.png" title="The viewfinder with status bar" width="600px" >}}
 
-Taking photos is simple. Wake the camera with the “select” button, frame the shot on the e-ink viewfinder, and press the shutter. The screen goes black for a moment to hide the host image on the screen. No review, no second look. Double-pressing “select” activates a self-timer. That's about it.
+Taking photos is simple. Wake the camera with the “select” button, frame the shot on the e-ink viewfinder, and press the shutter. The screen goes black for a moment to hide the ghost image on the screen. No review, no second look. Double-pressing “select” activates a self-timer. That's about it.
 
 The only choice you have comes before you've taken any photo, when you load a roll. Like picking a film type, you choose a preset and stick with it.
 

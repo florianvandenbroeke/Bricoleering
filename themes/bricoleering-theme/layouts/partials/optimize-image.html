@@ -1,0 +1,11 @@
+{{ $img := . }}
+{{ $result := $img }}
+{{ if ne $img.MediaType.SubType "gif" }}
+  {{ $maxWidth := 1600 }}
+  {{ if gt $img.Width $maxWidth }}
+    {{ $result = $img.Resize (printf "%dx q82" $maxWidth) }}
+  {{ else }}
+    {{ $result = $img.Process "q82" }}
+  {{ end }}
+{{ end }}
+{{ return $result }}

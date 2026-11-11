@@ -4,11 +4,16 @@
 {{ $page := .Page }}
 {{ $n := add ($page.Store.Get "figureCount" | default 0) 1 }}
 {{ $page.Store.Set "figureCount" $n }}
-{{ $img := $page.Resources.GetMatch $src }}
+{{ $res := $page.Resources.GetMatch $src }}
 {{ $width := .Get "width" }}
 <figure{{ with $width }} style="max-width: {{ . }}; margin-left: auto; margin-right: auto;"{{ end }}>
-  {{ with $img }}
-  <img src="{{ .RelPermalink }}" alt="{{ $alt }}">
+  {{ with $res }}
+    {{ if eq .MediaType.MainType "video" }}
+    <video src="{{ .RelPermalink }}" autoplay loop muted playsinline></video>
+    {{ else }}
+    {{ $optimized := partial "optimize-image.html" . }}
+    <img src="{{ $optimized.RelPermalink }}" alt="{{ $alt }}" width="{{ $optimized.Width }}" height="{{ $optimized.Height }}">
+    {{ end }}
   {{ else }}
   <img src="{{ $src | relURL }}" alt="{{ $alt }}">
   {{ end }}
