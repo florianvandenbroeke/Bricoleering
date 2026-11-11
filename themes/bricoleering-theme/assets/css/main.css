@@ -56,27 +56,18 @@ a:hover {
     transition: border-bottom-color 150ms ease;
 }
 
-/* Chromium-only (Chrome/Edge/Brave): wavy black underline for
-   in-post links. -webkit-app-region is a reliable
-   feature-detection hack for "is this Chromium", since Safari and
-   Firefox don't support it. */
-@supports (-webkit-app-region: drag) {
-  .post-content a {
-    border-bottom: none;
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: var(--maincolor);
-    text-decoration-thickness: 2.5px;
-    text-underline-offset: 4px;
-    transition: text-decoration-color 600ms;
-  }
+.post-content a {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration-color: var(--maincolor);
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 200ms ease;
+}
 
-  .post-content a:hover {
-    background-color: transparent;
-    color: inherit;
-    text-decoration-color: var(--bordercl);
-    transition: text-decoration-color 600ms;
-  }
+.post-content a:hover {
+  text-decoration-color: var(--bordercl);
+  transition: text-decoration-color 150ms ease;
 }
 
 /* Title/navigational links (post titles, list items, pager) are not

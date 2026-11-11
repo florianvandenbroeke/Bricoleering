@@ -5,7 +5,8 @@
 {{ $n := add ($page.Store.Get "figureCount" | default 0) 1 }}
 {{ $page.Store.Set "figureCount" $n }}
 {{ $img := $page.Resources.GetMatch $src }}
-<figure>
+{{ $width := .Get "width" }}
+<figure{{ with $width }} style="max-width: {{ . }}; margin-left: auto; margin-right: auto;"{{ end }}>
   {{ with $img }}
   <img src="{{ .RelPermalink }}" alt="{{ $alt }}">
   {{ else }}
