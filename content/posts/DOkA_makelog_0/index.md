@@ -1,7 +1,7 @@
 +++
 date = '2026-11-08T11:35:23+01:00'
 draft = false
-title = 'A digital camera that pretends to be analog'
+title = 'DOkA - a digital camera that pretends to be analog'
 project = 'DOkA'
 type = 'makelog'
 nummer = 0
