@@ -27,7 +27,7 @@
 							{{ dateFormat "2006-01-02" $post.Date }}{{ if $post.Draft }} <span class="draft-label">DRAFT</span>{{ end }}
 						</div>
 						<h1 class="latest-title"><a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a></h1>
-						<p class="latest-excerpt">{{ $post.Plain | strings.TrimSpace | truncate 400 }}</p>
+						<p class="latest-excerpt">{{ $post.Plain | htmlUnescape | strings.TrimSpace | truncate 400 }}</p>
 					</article>
 					{{ end }}
 				</div>
