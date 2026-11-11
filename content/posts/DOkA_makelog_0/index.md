@@ -21,6 +21,6 @@ DOkA behaves like an analog film camera, but is digital. Before you start taking
 
 DOkA is not intended to replace a smartphone camera. It has no zoom, no reviewing, editing or deleting on-the-go. It doesn’t even have any settings. DOkA is intended to offer the only feature that a smartphone doesn’t have: limitations.   
   
-Despite its limitations, I still want this to be a usable camera, and there’s no usable camera without a viewfinder. For DOkA, the viewfinder will be its e-ink screen. No detailed preview, but a monochrome dithered image that is just enough to frame the photo. Design-wise, the main idea is “Leica meets Rams”: 2 buttons, a status LED, a screen and a USB-C port. Nothing more.  
-  
-In the next makelog, I’ll explore how I can turn this idea into a working camera: what hardware to use, can everything fit in a portable enclosure and will the battery  last for an entire trip?  
+Despite its limitations, I still want this to be a usable camera, and there’s no usable camera without a viewfinder. For DOkA, the viewfinder will be its e-ink screen. No detailed preview, but a monochrome dithered image that is just enough to frame the photo. 
+
+Design-wise, the main idea is “Leica meets Rams”: 2 buttons, a status LED, a screen and a USB-C port. Nothing more.
